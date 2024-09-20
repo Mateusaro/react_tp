@@ -1,3 +1,4 @@
+// src/pages/EditFilme.js
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -36,7 +37,6 @@ function EditFilme() {
         event.preventDefault();
         try {
             await axios.put(`http://localhost:8080/filmes/${id}`, filme);
-            // Redirecionar para a página inicial ou exibir uma mensagem de sucesso
             navigate('/');
         } catch (error) {
             console.error('Error updating filme:', error);

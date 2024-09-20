@@ -4,10 +4,15 @@ const FilmeForm = ({ onSubmit }) => {
   const [titulo, setTitulo] = useState('');
   const [diretor, setDiretor] = useState('');
   const [anoLancamento, setAnoLancamento] = useState('');
+  const [cinemaId, setCinemaId] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ titulo, diretor, anoLancamento });
+    if (!titulo || !diretor || !anoLancamento || !cinemaId) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+    onSubmit({ titulo, diretor, anoLancamento, cinemaId });
   };
 
   return (
@@ -34,6 +39,14 @@ const FilmeForm = ({ onSubmit }) => {
           type="number"
           value={anoLancamento}
           onChange={(e) => setAnoLancamento(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>ID do Cinema:</label>
+        <input
+          type="text"
+          value={cinemaId}
+          onChange={(e) => setCinemaId(e.target.value)}
         />
       </div>
       <button type="submit">Salvar</button>

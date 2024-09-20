@@ -1,6 +1,5 @@
-// src/pages/Home.js
 import React, { useEffect, useState } from 'react';
-import { getFilmes, deleteFilme } from '../api';
+import { getFilmes, deleteFilme} from '../api';
 import FilmeList from '../components/FilmeList';
 import { Link } from 'react-router-dom';
 
@@ -21,11 +20,15 @@ const Home = () => {
     fetchFilmes();
   };
 
+
+
   return (
     <div>
       <h1>Filmes</h1>
       <Link to="/add">Adicionar Filme</Link>
-      <FilmeList filmes={filmes} onDelete={handleDelete} />
+      <Link to="/add-cinema">Adicionar Cinema</Link> {/* Adiciona o link para criar cinema */}
+      <FilmeList filmes={filmes} onDelete={handleDelete} />  
+      
     </div>
   );
 };

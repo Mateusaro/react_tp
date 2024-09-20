@@ -1,4 +1,3 @@
-// src/pages/AddFilme.js
 import React from 'react';
 import { createFilme } from '../api';
 import FilmeForm from '../components/FilmeForm';
@@ -8,7 +7,8 @@ const AddFilme = () => {
   const navigate = useNavigate();
 
   const handleAddFilme = async (filme) => {
-    await createFilme(filme);
+    const { titulo, diretor, anoLancamento, cinemaId } = filme;
+    await createFilme({ titulo, diretor, anoLancamento, cinemaId});
     navigate('/');
   };
 
